@@ -1,4 +1,4 @@
-package rpi.sense.hat.executor;
+package rpi.sensehat.exception;
 
 /**
  * Created by jcincera on 21/06/2017.

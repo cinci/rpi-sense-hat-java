@@ -1,4 +1,4 @@
-package rpi.sense.hat.api;
+package rpi.sensehat.api;
 
 import org.junit.Test;
 
@@ -18,6 +18,7 @@ public class EnvironmentalSensorTest {
 
         assertNotNull(humidity);
         assertTrue(humidity > 10.0);
+        assertTrue(humidity < 100.0);
     }
 
     @Test
@@ -26,6 +27,7 @@ public class EnvironmentalSensorTest {
 
         assertNotNull(temperature);
         assertTrue(temperature > 10.0);
+        assertTrue(temperature < 100.0);
     }
 
     @Test
@@ -34,6 +36,7 @@ public class EnvironmentalSensorTest {
 
         assertNotNull(temperatureFromHumidity);
         assertTrue(temperatureFromHumidity > 10.0);
+        assertTrue(temperatureFromHumidity < 100.0);
     }
 
     @Test
@@ -42,6 +45,7 @@ public class EnvironmentalSensorTest {
 
         assertNotNull(temperatureFromPressure);
         assertTrue(temperatureFromPressure > 10.0);
+        assertTrue(temperatureFromPressure < 100.0);
     }
 
     @Test
@@ -50,5 +54,6 @@ public class EnvironmentalSensorTest {
 
         assertNotNull(pressure);
         assertTrue(pressure > 100.0);
+        assertTrue(pressure < 1000.0);
     }
 }

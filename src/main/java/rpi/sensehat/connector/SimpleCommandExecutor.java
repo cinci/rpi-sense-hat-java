@@ -1,4 +1,7 @@
-package rpi.sense.hat.executor;
+package rpi.sensehat.connector;
+
+import rpi.sensehat.exception.CommandException;
+import rpi.sensehat.exception.CommunicationException;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -6,7 +9,7 @@ import java.io.InputStreamReader;
 /**
  * Created by jcincera on 20/06/2017.
  */
-public class SingleCommandExecutor implements CommandExecutor {
+public class SimpleCommandExecutor implements CommandExecutor {
 
     private String lineSeparator = System.getProperty("line.separator");
 
@@ -34,14 +37,18 @@ public class SingleCommandExecutor implements CommandExecutor {
             System.out.println("Command result: " + result.toString());
 
             // Handle result
-            p.waitFor();
-            waitForCommand();
+            waitForCommand(p);
             checkCommandException(result);
             return new CommandResult(result.toString());
         }
         catch (Exception e) {
             System.err.println(e);
-            throw new CommandException(e);
+
+            if (e instanceof CommandException) {
+                throw (CommandException) e;
+            }
+
+            throw new CommunicationException(e);
         }
     }
 
@@ -57,8 +64,9 @@ public class SingleCommandExecutor implements CommandExecutor {
                 command.getCommand();
     }
 
-    private void waitForCommand() {
+    private void waitForCommand(Process p) {
         try {
+            p.waitFor();
             Thread.sleep(1000);
         }
         catch (InterruptedException e) {

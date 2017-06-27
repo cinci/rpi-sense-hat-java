@@ -1,4 +1,4 @@
-package rpi.sense.hat.executor;
+package rpi.sensehat.connector;
 
 /**
  * Created by jcincera on 22/06/2017.

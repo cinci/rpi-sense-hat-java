@@ -1,4 +1,4 @@
-group 'rpi.sense.hat'
+group 'rpi.sensehat.hat'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
