@@ -6,29 +6,38 @@ package rpi.sensehat.connector;
 public enum Command {
 
     // Imports
-    IMPORT_SENSE_HAT("from sense_hat import SenseHat"),
-    IMPORT_TIME("import time"),
+    IMPORT_SENSE_HAT("from sense_hat import SenseHat", false),
+    IMPORT_TIME("import time", false),
 
     // Object
-    SENSE_OBJECT("sensehat = SenseHat()"),
+    SENSE_OBJECT("sensehat = SenseHat()", false),
 
     // Environmental sensor
-    GET_HUMIDITY("print(sensehat.get_humidity())"),
-    GET_TEMPERATURE("print(sensehat.get_temperature())"),
-    GET_TEMPERATURE_FROM_HUMIDITY("print(sensehat.get_temperature_from_humidity())"),
-    GET_TEMPERATURE_FROM_PRESSURE("print(sensehat.get_temperature_from_pressure())"),
-    GET_PRESSURE("print(sensehat.get_pressure())"),
+    GET_HUMIDITY("print(sensehat.get_humidity())", false),
+    GET_TEMPERATURE("print(sensehat.get_temperature())", false),
+    GET_TEMPERATURE_FROM_HUMIDITY("print(sensehat.get_temperature_from_humidity())", false),
+    GET_TEMPERATURE_FROM_PRESSURE("print(sensehat.get_temperature_from_pressure())", false),
+    GET_PRESSURE("print(sensehat.get_pressure())", false),
+
+    // IMU
+    SET_IMU_CONFIG("sense.set_imu_config(%s, %s, %s)", true),
 
     // Common
-    GET_TIME("print(time.time())"),;
+    GET_TIME("print(time.time())", false),;
 
-    private String command;
+    private String rawCommand;
+    private Boolean isFormatted;
 
-    Command(String command) {
-        this.command = command;
+    Command(String command, Boolean isFormatted) {
+        this.rawCommand = command;
+        this.isFormatted = isFormatted;
     }
 
     public String getCommand() {
-        return command;
+        return rawCommand;
+    }
+
+    public Boolean isFormatted() {
+        return isFormatted;
     }
 }

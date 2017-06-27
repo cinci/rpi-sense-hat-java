@@ -6,7 +6,7 @@ package rpi.sensehat.connector;
 public class MultipleCommandExecutor implements CommandExecutor {
 
     @Override
-    public CommandResult execute(Command command) {
+    public CommandResult execute(Command command, String... args) {
         throw new UnsupportedOperationException("Not supported yet");
     }
 }

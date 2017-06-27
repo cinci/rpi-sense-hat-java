@@ -12,4 +12,8 @@ public class CommunicationException extends RuntimeException {
     public CommunicationException(Throwable cause) {
         super(cause);
     }
+
+    public CommunicationException(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

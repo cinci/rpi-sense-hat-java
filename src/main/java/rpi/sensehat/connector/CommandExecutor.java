@@ -5,6 +5,5 @@ package rpi.sensehat.connector;
  */
 public interface CommandExecutor {
 
-    CommandResult execute(Command command);
-
+    CommandResult execute(Command command, String... args);
 }

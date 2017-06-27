@@ -2,6 +2,9 @@
 
 Simple Java wrapper for Sense Hat which allows to write various applications in any JVM language
 
+- https://www.raspberrypi.org/products/sense-hat/
+- https://pythonhosted.org/sense-hat
+
 ### Supported sensors
 - Environmental sensors
 

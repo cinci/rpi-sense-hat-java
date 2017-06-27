@@ -14,11 +14,11 @@ public class SimpleCommandExecutor implements CommandExecutor {
     private String lineSeparator = System.getProperty("line.separator");
 
     @Override
-    public CommandResult execute(Command command) {
+    public CommandResult execute(Command command, String... args) {
         try {
 
             // Create command
-            final String completeCommand = createCompleteCommand(command);
+            final String completeCommand = createCompleteCommand(command, args);
 
             // Call
             ProcessBuilder pb = new ProcessBuilder("python", "-c", completeCommand);
@@ -48,7 +48,7 @@ public class SimpleCommandExecutor implements CommandExecutor {
                 throw (CommandException) e;
             }
 
-            throw new CommunicationException(e);
+            throw new CommunicationException("Communication with Sense Hat failed!", e);
         }
     }
 
@@ -58,10 +58,14 @@ public class SimpleCommandExecutor implements CommandExecutor {
         }
     }
 
-    private String createCompleteCommand(Command command) {
+    private String createCompleteCommand(Command command, String[] args) {
+        String rawCommand = command.isFormatted() ?
+                String.format(command.getCommand(), (Object[]) args) :
+                command.getCommand();
+
         return Command.IMPORT_SENSE_HAT.getCommand() + ";" +
                 Command.SENSE_OBJECT.getCommand() + ";" +
-                command.getCommand();
+                rawCommand;
     }
 
     private void waitForCommand(Process p) {
