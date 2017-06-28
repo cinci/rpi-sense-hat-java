@@ -1,6 +1,10 @@
 package rpi.sensehat.api;
 
-import rpi.sensehat.connector.*;
+import rpi.sensehat.connector.Command;
+import rpi.sensehat.connector.CommandExecutor;
+import rpi.sensehat.connector.MultipleCommandExecutor;
+import rpi.sensehat.connector.SimpleCommandExecutor;
+import rpi.sensehat.connector.result.CommandResult;
 
 /**
  * Created by jcincera on 22/06/2017.

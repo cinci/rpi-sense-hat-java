@@ -1,5 +1,6 @@
 package rpi.sensehat.connector;
 
+import rpi.sensehat.connector.result.CommandResult;
 import rpi.sensehat.exception.CommandException;
 import rpi.sensehat.exception.CommunicationException;
 
@@ -21,6 +22,7 @@ public class SimpleCommandExecutor implements CommandExecutor {
             final String completeCommand = createCompleteCommand(command, args);
 
             // Call
+            System.out.println("Command: " + completeCommand);
             ProcessBuilder pb = new ProcessBuilder("python", "-c", completeCommand);
             pb.redirectErrorStream(true);
             Process p = pb.start();

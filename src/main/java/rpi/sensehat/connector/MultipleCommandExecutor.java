@@ -1,5 +1,7 @@
 package rpi.sensehat.connector;
 
+import rpi.sensehat.connector.result.CommandResult;
+
 /**
  * Created by jcincera on 27/06/2017.
  */

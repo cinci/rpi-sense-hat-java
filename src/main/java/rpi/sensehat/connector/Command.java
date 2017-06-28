@@ -20,7 +20,8 @@ public enum Command {
     GET_PRESSURE("print(sensehat.get_pressure())", false),
 
     // IMU
-    SET_IMU_CONFIG("sense.set_imu_config(%s, %s, %s)", true),
+    SET_IMU_CONFIG("sensehat.set_imu_config(%s, %s, %s)", true),
+    GET_ORIENTATION_RADIANS("print('{pitch}@{roll}@{yaw}'.format(**sensehat.get_orientation_radians()))", false),
 
     // Common
     GET_TIME("print(time.time())", false),;
