@@ -2,7 +2,7 @@ package rpi.sensehat.api;
 
 import rpi.sensehat.connector.Command;
 import rpi.sensehat.connector.result.Orientation;
-import rpi.sensehat.utils.LanguageUtils;
+import rpi.sensehat.utils.PythonUtils;
 
 /**
  * Created by jcincera on 20/06/2017.
@@ -18,9 +18,9 @@ public class IMU extends SensorBase {
      */
     public void setIMUConfig(boolean compassEnabled, boolean gyroscopeEnabled, boolean accelerometerEnabled) {
         execute(Command.SET_IMU_CONFIG,
-                LanguageUtils.toBoolean(compassEnabled),
-                LanguageUtils.toBoolean(gyroscopeEnabled),
-                LanguageUtils.toBoolean(accelerometerEnabled)).checkEmpty();
+                PythonUtils.toBoolean(compassEnabled),
+                PythonUtils.toBoolean(gyroscopeEnabled),
+                PythonUtils.toBoolean(accelerometerEnabled)).checkEmpty();
     }
 
     /**
