@@ -61,7 +61,7 @@ public class SimpleCommandExecutor implements CommandExecutor {
     }
 
     private String createCompleteCommand(Command command, String[] args) {
-        String rawCommand = command.isFormatted() ?
+        String rawCommand = (args != null && args.length > 0) ?
                 String.format(command.getCommand(), (Object[]) args) :
                 command.getCommand();
 
