@@ -1,7 +1,8 @@
 package rpi.sensehat.api;
 
 import rpi.sensehat.connector.Command;
-import rpi.sensehat.connector.result.Orientation;
+import rpi.sensehat.connector.result.IMUData;
+import rpi.sensehat.connector.result.IMUDataRaw;
 import rpi.sensehat.utils.PythonUtils;
 
 /**
@@ -26,10 +27,84 @@ public class IMU extends SensorBase {
     /**
      * Gets the current orientation in radians using the aircraft principal axes of pitch, roll and yaw
      *
-     * @return Object with pitch, roll and yaw values. Values are Floats representing the angle of the axis in radians.
+     * @return Object with pitch, roll and yaw values. Values are Floats representing the angle of the axis in radians
      */
-    public Orientation getOrientationRadians() {
-        return execute(Command.GET_ORIENTATION_RADIANS).getOrientation();
+    public IMUData getOrientationRadians() {
+        return execute(Command.GET_ORIENTATION_RADIANS).getIMUData();
     }
 
+    /**
+     * Gets the current orientation in degrees using the aircraft principal axes of pitch, roll and yaw
+     *
+     * @return Object with pitch, roll and yaw values. Values are Floats representing the angle of the axis in degrees
+     */
+    public IMUData getOrientationDegrees() {
+        return execute(Command.GET_ORIENTATION_DEGREES).getIMUData();
+    }
+
+    /**
+     * Calls get_orientation_degrees internally in Python core
+     *
+     * @return Object with pitch, roll and yaw representing the angle of the axis in degrees
+     */
+    public IMUData getOrientation() {
+        return execute(Command.GET_ORIENTATION).getIMUData();
+    }
+
+    /**
+     * Calls set_imu_config internally in Python core to disable the gyroscope and accelerometer
+     * then gets the direction of North from the magnetometer in degrees
+     *
+     * @return The direction of North
+     */
+    public float getCompass() {
+        return execute(Command.GET_COMPASS).getFloat();
+    }
+
+    /**
+     * Gets the raw x, y and z axis magnetometer data
+     *
+     * @return Object representing the magnetic intensity of the axis in microteslas (µT)
+     */
+    public IMUDataRaw getCompassRaw() {
+        return execute(Command.GET_COMPASS_RAW).getIMUDataRaw();
+    }
+
+    /**
+     * Calls set_imu_config internally in Python core to disable the magnetometer and accelerometer
+     * then gets the current orientation from the gyroscope only
+     *
+     * @return Object with pitch, roll and yaw representing the angle of the axis in degrees
+     */
+    public IMUData getGyroscope() {
+        return execute(Command.GET_GYROSCOPE).getIMUData();
+    }
+
+    /**
+     * Gets the raw x, y and z axis gyroscope data
+     *
+     * @return Object representing the rotational intensity of the axis in radians per second
+     */
+    public IMUDataRaw getGyroscopeRaw() {
+        return execute(Command.GET_GYROSCOPE_RAW).getIMUDataRaw();
+    }
+
+    /**
+     * Calls set_imu_config in Python core to disable the magnetometer and gyroscope
+     * then gets the current orientation from the accelerometer only
+     *
+     * @return Object representing the angle of the axis in degrees
+     */
+    public IMUData getAccelerometer() {
+        return execute(Command.GET_ACCELEROMETER).getIMUData();
+    }
+
+    /**
+     * Gets the raw x, y and z axis accelerometer data
+     *
+     * @return Object representing the acceleration intensity of the axis in Gs
+     */
+    public IMUDataRaw getAccelerometerRaw() {
+        return execute(Command.GET_ACCELEROMETER_RAW).getIMUDataRaw();
+    }
 }

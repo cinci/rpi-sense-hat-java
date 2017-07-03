@@ -3,13 +3,13 @@ package rpi.sensehat.connector.result;
 /**
  * Created by jcincera on 28/06/2017.
  */
-public class Orientation {
+public class IMUData {
 
     private float pitch;
     private float roll;
     private float yaw;
 
-    public Orientation(float pitch, float roll, float yaw) {
+    public IMUData(float pitch, float roll, float yaw) {
         this.pitch = pitch;
         this.roll = roll;
         this.yaw = yaw;

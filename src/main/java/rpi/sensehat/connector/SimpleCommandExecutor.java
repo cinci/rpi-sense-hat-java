@@ -22,7 +22,7 @@ public class SimpleCommandExecutor implements CommandExecutor {
             final String completeCommand = createCompleteCommand(command, args);
 
             // Call
-            System.out.println("Command: " + completeCommand);
+            // System.out.println("Command: " + completeCommand);
             ProcessBuilder pb = new ProcessBuilder("python", "-c", completeCommand);
             pb.redirectErrorStream(true);
             Process p = pb.start();
@@ -73,7 +73,7 @@ public class SimpleCommandExecutor implements CommandExecutor {
     private void waitForCommand(Process p) {
         try {
             p.waitFor();
-            Thread.sleep(1000);
+            Thread.sleep(300);
         }
         catch (InterruptedException e) {
             System.err.println(e);
