@@ -7,5 +7,7 @@ import rpi.sensehat.api.dto.CommandResult;
  */
 public interface CommandExecutor {
 
+    String lineSeparator = System.getProperty("line.separator");
+
     CommandResult execute(Command command, String... args);
 }

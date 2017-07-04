@@ -3,6 +3,7 @@ package rpi.sensehat.connector;
 import rpi.sensehat.api.dto.CommandResult;
 import rpi.sensehat.exception.CommandException;
 import rpi.sensehat.exception.CommunicationException;
+import rpi.sensehat.exception.InvalidSystemArchitectureException;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -12,7 +13,11 @@ import java.io.InputStreamReader;
  */
 public class SimpleCommandExecutor implements CommandExecutor {
 
-    private String lineSeparator = System.getProperty("line.separator");
+    SimpleCommandExecutor() {
+        if (System.getProperty("os.arch").toLowerCase().contains("arm")) {
+            throw new InvalidSystemArchitectureException("System architecture is not supported for this command executor");
+        }
+    }
 
     @Override
     public CommandResult execute(Command command, String... args) {
@@ -73,7 +78,7 @@ public class SimpleCommandExecutor implements CommandExecutor {
     private void waitForCommand(Process p) {
         try {
             p.waitFor();
-            Thread.sleep(300);
+            Thread.sleep(100);
         }
         catch (InterruptedException e) {
             System.err.println(e);

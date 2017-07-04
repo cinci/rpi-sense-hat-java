@@ -9,7 +9,6 @@ public enum Command {
      * Imports
      */
     IMPORT_SENSE_HAT("from sense_hat import SenseHat"),
-    IMPORT_TIME("import time"),
 
     /**
      * Core object
@@ -55,12 +54,7 @@ public enum Command {
     SHOW_MESSAGE_PARAMETRIZED("sensehat.show_message('%s', %s, [%s, %s, %s], [%s, %s, %s])"),
     SHOW_LETTER("sensehat.show_letter('%s')"),
     SHOW_LETTER_PARAMETRIZED("sensehat.show_letter('%s', [%s, %s, %s], [%s, %s, %s])"),
-    LOW_LIGHT("sensehat.low_light = %s"),
-
-    /**
-     * Common
-     */
-    GET_TIME("print(time.time())"),;
+    LOW_LIGHT("sensehat.low_light = %s"),;
 
     private String rawCommand;
 

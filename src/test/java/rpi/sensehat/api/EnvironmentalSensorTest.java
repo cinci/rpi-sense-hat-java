@@ -53,7 +53,7 @@ public class EnvironmentalSensorTest {
         float pressure = sensor.getPressure();
 
         assertNotNull(pressure);
-        assertTrue(pressure > 100.0);
+        assertTrue(pressure > 20.0);
         assertTrue(pressure < 1000.0);
     }
 }

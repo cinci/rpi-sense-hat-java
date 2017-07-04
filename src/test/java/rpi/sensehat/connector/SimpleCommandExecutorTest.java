@@ -1,9 +1,11 @@
 package rpi.sensehat.connector;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assume.assumeTrue;
 
 /**
  * Created by jcincera on 20/06/2017.
@@ -11,6 +13,11 @@ import static org.junit.Assert.assertTrue;
 public class SimpleCommandExecutorTest {
 
     private SimpleCommandExecutor commandExecutor = new SimpleCommandExecutor();
+
+    @Before
+    public void setup() {
+        assumeTrue(System.getProperty("os.arch").toLowerCase().contains("arm"));
+    }
 
     @Test
     public void getHumidityTest() {
