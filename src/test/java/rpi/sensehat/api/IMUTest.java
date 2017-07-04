@@ -1,8 +1,8 @@
 package rpi.sensehat.api;
 
 import org.junit.Test;
-import rpi.sensehat.connector.result.IMUData;
-import rpi.sensehat.connector.result.IMUDataRaw;
+import rpi.sensehat.api.dto.IMUData;
+import rpi.sensehat.api.dto.IMUDataRaw;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;

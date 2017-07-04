@@ -1,4 +1,4 @@
-package rpi.sensehat.connector.result;
+package rpi.sensehat.api.dto;
 
 /**
  * Created by jcincera on 03/07/2017.

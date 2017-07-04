@@ -1,6 +1,6 @@
 package rpi.sensehat.connector;
 
-import rpi.sensehat.connector.result.CommandResult;
+import rpi.sensehat.api.dto.CommandResult;
 import rpi.sensehat.exception.CommandException;
 import rpi.sensehat.exception.CommunicationException;
 

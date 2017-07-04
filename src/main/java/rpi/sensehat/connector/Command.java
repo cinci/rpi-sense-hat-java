@@ -44,6 +44,20 @@ public enum Command {
     GET_ACCELEROMETER_RAW("print('{x}@{y}@{z}'.format(**sensehat.get_accelerometer_raw()))"),
 
     /**
+     * LED Matrix
+     */
+    SET_ROTATION("sensehat.set_rotation(%s)"),
+    SET_PIXEL("sensehat.set_pixel(%s, %s, %s, %s, %s)"),
+    SET_PIXELS("sensehat.set_pixels([%s])"),
+    CLEAR("sensehat.clear()"),
+    CLEAR_WITH_COLOR("sensehat.clear(%s, %s, %s)"),
+    SHOW_MESSAGE("sensehat.show_message('%s')"),
+    SHOW_MESSAGE_PARAMETRIZED("sensehat.show_message('%s', %s, [%s, %s, %s], [%s, %s, %s])"),
+    SHOW_LETTER("sensehat.show_letter('%s')"),
+    SHOW_LETTER_PARAMETRIZED("sensehat.show_letter('%s', [%s, %s, %s], [%s, %s, %s])"),
+    LOW_LIGHT("sensehat.low_light = %s"),
+
+    /**
      * Common
      */
     GET_TIME("print(time.time())"),;

@@ -5,21 +5,13 @@ Simple Java wrapper for Sense Hat which allows to write various applications in 
 - https://www.raspberrypi.org/products/sense-hat/
 - https://github.com/RPi-Distro/python-sense-hat
 
-### Supported sensors
+### Supported components
 - Environmental sensors
 - IMU (inertial measurement unit)
+- LED Matrix
 
-### Unsupported sensors (TODO)
+### Unsupported components (TODO)
 - Joystick
-- LED
-
-## Type of communication
-
-### Simple command execution
-Builds command for Python core and execute via new process
-
-### Multiple command execution (TODO - not supported yet)
-Creates new Python process and communicate only with this process (if possible) to save resources
 
 ## Usage
 
@@ -34,7 +26,7 @@ Creates new Python process and communicate only with this process (if possible) 
 ./gradlew clean -x test
 ```
 - Copy _build/libs/java-executor-1.0-SNAPSHOT.jar_ into your project classpath
-- Alternatively it's possible to edit _rpi.sense.hat.example.Project_ and run
+- Alternatively it's possible to edit _rpi.sense.hat.example.Project_ and run on RPi
 ```
 ./gradlew run
 ```

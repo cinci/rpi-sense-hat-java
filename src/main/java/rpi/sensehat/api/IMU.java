@@ -1,14 +1,14 @@
 package rpi.sensehat.api;
 
+import rpi.sensehat.api.dto.IMUData;
+import rpi.sensehat.api.dto.IMUDataRaw;
 import rpi.sensehat.connector.Command;
-import rpi.sensehat.connector.result.IMUData;
-import rpi.sensehat.connector.result.IMUDataRaw;
 import rpi.sensehat.utils.PythonUtils;
 
 /**
  * Created by jcincera on 20/06/2017.
  */
-public class IMU extends SensorBase {
+public class IMU extends APIBase {
 
     /**
      * Enables and disables the gyroscope, accelerometer and/or magnetometer contribution to the get orientation functions

@@ -5,7 +5,7 @@ import rpi.sensehat.connector.Command;
 /**
  * Created by jcincera on 20/06/2017.
  */
-public class EnvironmentalSensor extends SensorBase {
+public class EnvironmentalSensor extends APIBase {
 
     /**
      * Gets the percentage of relative humidity from the humidity sensor

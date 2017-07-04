@@ -1,4 +1,4 @@
-package rpi.sensehat.connector.result;
+package rpi.sensehat.api.dto;
 
 import rpi.sensehat.exception.CommandException;
 import rpi.sensehat.exception.CommunicationException;
