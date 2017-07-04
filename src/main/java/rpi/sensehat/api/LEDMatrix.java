@@ -10,6 +10,9 @@ import rpi.sensehat.utils.PythonUtils;
  */
 public class LEDMatrix extends APIBase {
 
+    LEDMatrix() {
+    }
+
     /**
      * Switch rotation/orientation of display
      *
@@ -98,6 +101,20 @@ public class LEDMatrix extends APIBase {
                 String.format("%.2f", scrollSpeed),
                 textColor.r(), textColor.g(), textColor.b(),
                 backColor.r(), backColor.g(), backColor.b()).checkEmpty();
+    }
+
+    /**
+     * Wait for some message or event
+     *
+     * @param seconds seconds
+     */
+    public void waitFor(Integer seconds) {
+        try {
+            Thread.sleep(seconds * 1000);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

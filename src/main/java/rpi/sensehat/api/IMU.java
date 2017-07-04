@@ -10,6 +10,9 @@ import rpi.sensehat.utils.PythonUtils;
  */
 public class IMU extends APIBase {
 
+    IMU() {
+    }
+
     /**
      * Enables and disables the gyroscope, accelerometer and/or magnetometer contribution to the get orientation functions
      *
