@@ -2,16 +2,14 @@
 
 Simple Java wrapper for Sense Hat which allows to write various applications in any JVM language
 
-- https://www.raspberrypi.org/products/sense-hat/
+- https://www.raspberrypi.org/products/sense-hat
 - https://github.com/RPi-Distro/python-sense-hat
 
 ### Supported components
 - Environmental sensors
 - IMU (inertial measurement unit)
 - LED Matrix
-
-### Unsupported components (TODO)
-- Joystick
+- Joystick (only blocking operation, must be used in separate thread)
 
 ## Usage
 

@@ -9,7 +9,7 @@ import rpi.sensehat.exception.InvalidSystemArchitectureException;
 public class MultipleCommandExecutor implements CommandExecutor {
 
     MultipleCommandExecutor() {
-        if (System.getProperty("os.arch").toLowerCase().contains("arm")) {
+        if (!System.getProperty("os.arch").toLowerCase().contains("arm")) {
             throw new InvalidSystemArchitectureException("System architecture is not supported for this command executor");
         }
     }

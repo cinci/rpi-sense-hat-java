@@ -14,7 +14,7 @@ import java.io.InputStreamReader;
 public class SimpleCommandExecutor implements CommandExecutor {
 
     SimpleCommandExecutor() {
-        if (System.getProperty("os.arch").toLowerCase().contains("arm")) {
+        if (!System.getProperty("os.arch").toLowerCase().contains("arm")) {
             throw new InvalidSystemArchitectureException("System architecture is not supported for this command executor");
         }
     }

@@ -54,7 +54,15 @@ public enum Command {
     SHOW_MESSAGE_PARAMETRIZED("sensehat.show_message('%s', %s, [%s, %s, %s], [%s, %s, %s])"),
     SHOW_LETTER("sensehat.show_letter('%s')"),
     SHOW_LETTER_PARAMETRIZED("sensehat.show_letter('%s', [%s, %s, %s], [%s, %s, %s])"),
-    LOW_LIGHT("sensehat.low_light = %s"),;
+    LOW_LIGHT("sensehat.low_light = %s"),
+
+    /**
+     * Joystick
+     */
+    GET_EVENTS("e = sensehat.stick.get_events();" +
+            "print(str('|'.join('{}@{}@{}'.format(i.action, i.direction, i.timestamp) for i in e)))"),
+    WAIT_FOR_EVENT_EMPTY_BUFFER("e = sensehat.stick.wait_for_event(%s)\n" +
+            "print('{}@{}@{}'.format(e.action, e.direction, e.timestamp))"),;
 
     private String rawCommand;
 

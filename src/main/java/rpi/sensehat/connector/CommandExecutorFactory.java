@@ -14,7 +14,7 @@ public class CommandExecutorFactory {
     private static final String OS_ARCH_ARM = "arm";
 
     public static CommandExecutor get() {
-        System.out.println("Detecting platform...");
+        System.out.println("Platform: " + System.getProperty(OS_ARCH));
 
         // Dev command executor for not ARM system (macOS etc.)
         String osArch = System.getProperty(OS_ARCH).toLowerCase();

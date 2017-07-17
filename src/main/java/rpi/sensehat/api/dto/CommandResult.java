@@ -46,6 +46,20 @@ public class CommandResult {
         );
     }
 
+    public JoystickEvent getJoystickEvent() {
+        final String[] result = value.split("@");
+
+        if (result.length != 3) {
+            throw new CommandException("Parsing joystick event failed: " + value);
+        }
+
+        return new JoystickEvent(
+                result[0],
+                result[1],
+                result[2]
+        );
+    }
+
     public void checkEmpty() {
         if (this.value == null || !this.value.trim().equals("")) {
             throw new CommunicationException("Unexpected output: " + "'" + this.value + "'");
