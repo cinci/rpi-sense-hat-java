@@ -67,7 +67,7 @@ public class IMU extends APIBase {
     /**
      * Gets the raw x, y and z axis magnetometer data
      *
-     * @return Object representing the magnetic intensity of the axis in microteslas (µT)
+     * @return Object representing the magnetic intensity of the axis in microteslas (uT)
      */
     public IMUDataRaw getCompassRaw() {
         return execute(Command.GET_COMPASS_RAW).getIMUDataRaw();
