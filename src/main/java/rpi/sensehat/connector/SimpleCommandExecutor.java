@@ -27,7 +27,7 @@ public class SimpleCommandExecutor implements CommandExecutor {
             final String completeCommand = createCompleteCommand(command, args);
 
             // Call
-            // System.out.println("Command: " + completeCommand);
+            System.out.println("Command: " + command.name());
             ProcessBuilder pb = new ProcessBuilder("python", "-c", completeCommand);
             pb.redirectErrorStream(true);
             Process p = pb.start();

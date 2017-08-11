@@ -14,7 +14,6 @@ public class CommandExecutorFactory {
     private static final String OS_ARCH_ARM = "arm";
 
     public static CommandExecutor get() {
-        System.out.println("Platform: " + System.getProperty(OS_ARCH));
 
         // Dev command executor for not ARM system (macOS etc.)
         String osArch = System.getProperty(OS_ARCH).toLowerCase();
@@ -26,15 +25,12 @@ public class CommandExecutorFactory {
         // Command executor for Raspberry PI
         String senseHatExecutorType = System.getProperty(SENSE_HAT_EXECUTOR_TYPE);
         if (MULTIPLE_COMMAND.equals(senseHatExecutorType)) {
-            System.out.println("Using multiple command executor");
             return new MultipleCommandExecutor();
         }
         else if (SIMPLE_COMMAND.equals(senseHatExecutorType)) {
-            System.out.println("Using simple command executor");
             return new SimpleCommandExecutor();
         }
         else {
-            System.out.println("Using default: simple command executor");
             return new SimpleCommandExecutor();
         }
     }

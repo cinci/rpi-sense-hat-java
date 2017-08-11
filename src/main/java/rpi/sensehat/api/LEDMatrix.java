@@ -84,6 +84,10 @@ public class LEDMatrix extends APIBase {
      * @param message message
      */
     public void showMessage(String message) {
+        if (message.contains("'")) {
+            throw new IllegalArgumentException("Character: > ' < is not supported in message!");
+        }
+
         execute(Command.SHOW_MESSAGE, message).checkEmpty();
     }
 
@@ -96,6 +100,10 @@ public class LEDMatrix extends APIBase {
      * @param backColor   background color
      */
     public void showMessage(String message, Float scrollSpeed, Color textColor, Color backColor) {
+        if (message.contains("'")) {
+            throw new IllegalArgumentException("Character: > ' < is not supported in message!");
+        }
+
         execute(Command.SHOW_MESSAGE_PARAMETRIZED,
                 message,
                 String.format("%.2f", scrollSpeed),
@@ -123,6 +131,13 @@ public class LEDMatrix extends APIBase {
      * @param letter letter
      */
     public void showLetter(String letter) {
+        if (letter.contains("'")) {
+            throw new IllegalArgumentException("Letter: > ' < is not supported!");
+        }
+        if (letter.length() != 1) {
+            throw new IllegalArgumentException("Only one letter is supported!");
+        }
+
         execute(Command.SHOW_LETTER, letter).checkEmpty();
     }
 
